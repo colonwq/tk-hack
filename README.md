@@ -4,6 +4,8 @@ This application combines a **hex-style memory view** with a **word-finding puzz
 
 **This code was generated using Cursor AI.**
 
+![Screenshot](screenshot.jpg)
+
 ---
 
 ## Ideas Behind the Application
