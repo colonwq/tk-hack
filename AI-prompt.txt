@@ -1,0 +1,122 @@
+# Prompts to Recreate the Hex Viewer Word-Finding Application
+
+Use these prompts in order with an AI coding assistant (e.g. Cursor) to recreate the application. Assume a single Python file `hex_viewer.py` and Tkinter. Apply each prompt as an incremental update unless the prompt says "from scratch."
+
+---
+
+## Prompt 1 (initial app)
+
+Using tk:
+- Create a two column display.
+- Each column will be 16 characters wide.
+- Each column will be 24 rows long.
+- Each column will be randomly filled with ASCII printable characters not including letters and numbers.
+- Beside each column will be the hex address of the start of the row.
+- The first address will be 0xF00.
+- The background color will be black.
+- The hex address characters will be medium neon green.
+- The random characters will be bright neon green.
+- As the random characters are moused over, they will be color inverted.
+
+---
+
+## Prompt 2
+
+Update the code to include the hex address of the second column. This should start immediately after the last address of the first column. There should be space between the two sets of columns.
+
+---
+
+## Prompt 3
+
+Add lazy pattern matching. A '{' will match the first '}' on the same row. Repeat for [], <> and (). When a match is found, highlight all the characters from first to last.
+
+---
+
+## Prompt 4
+
+Update the code: when the first character is moused over, if a match is found, invert the colors. If clicked, highlight the range. Do not unhighlight when the next match is clicked.
+
+---
+
+## Prompt 5
+
+Update the code: Do not match across the columns. Matching is only done within each individual column.
+
+---
+
+## Prompt 6
+
+Only invert the colors of matches when the first character (opening bracket) is highlighted. Do not look for matches if the last character of a match (closing bracket) is moused over.
+
+---
+
+## Prompt 7
+
+Once a match is highlighted, do not invert the colors if it is moused over again.
+
+---
+
+## Prompt 8
+
+Update the code to randomly add 8 four-letter English words instead of only random characters (so the grid still has random symbols but 8 words are placed in it). The words should be distinct, should not overlap, and should have a minimum of one character between them on a row.
+
+---
+
+## Prompt 9
+
+Add a third column for displaying messages. The messages should start at the top of the column with new messages appended. If the column gets full, old messages are automatically scrolled up. When a match is found, append the message "Match found" to the message column. When a word is clicked, append the message "Word found" to the message column. The message text color should be the same as the random characters.
+
+---
+
+## Prompt 10
+
+Once a match is highlighted or a word is clicked, show the appropriate "found" message only the first time for that match or that word. Do not add the message again if the same match or same word is clicked again. When a new match or new word is clicked, show the message only if it is the first time that specific match or word is clicked (do not show the message for already-clicked matches or words).
+
+---
+
+## Prompt 11
+
+When the list of 8 words is created, one word will be the secret code. When that word is clicked, display the message "Secret found" and do not accept any more mouse highlights or clicks.
+
+---
+
+## Prompt 12
+
+When a word is clicked, highlight the word just like the bracket match (same highlight style). Compare the clicked word with the secret: count how many letters occur in the same position. Update the display message to "Found word: N" where N is that count (e.g. "Found word: 1", "Found word: 2"). Example: secret "cars" and clicked "fast" have 1 common letter in the same position.
+
+---
+
+## Prompt 13
+
+Add a status line on the bottom of the display. On the left hand side, have 3 green squares. If a word is clicked and it is not the secret, the rightmost square will be changed to red. On the right hand side, display the message "Memory Value 0xXX" where 0xXX is the hex value of the character under the mouse pointer. The boxes should be square and about the size of the text display.
+
+---
+
+## Prompt 14
+
+When a match is clicked, remove one of the non-secret words from the display. Replace the letters with spaces (e.g. "cats" becomes "    "). That word is no longer clickable as a word.
+
+---
+
+## Prompt 15
+
+Update the code: (1) Do not remove the secret word from the display. (2) Add the message "Error" to the message column if a matched pattern is clicked and no additional (non-secret) words can be removed from the display.
+
+---
+
+## Prompt 16
+
+Add a menu bar at the top with buttons:
+- "Regen" will generate a new screen and reset all the counters (new random grid, new words, new secret, reset status squares and message log).
+- "Exit" will exit the program.
+- "Give up" will print the secret message ("Secret found") and turn the secret word's letters red, and disable further interaction.
+
+---
+
+## Prompt 17 (documentation and meta)
+
+Create a README.md describing the ideas behind this application and how it works. Include the text "This code was generated using Cursor AI". Create a file AI-prompt.txt containing sufficient prompts to recreate this application, including the README.md and AI-prompt.txt (i.e. a list of prompts like the ones above that would allow someone to rebuild the app and its documentation).
+
+---
+
+End of AI-prompt.txt
